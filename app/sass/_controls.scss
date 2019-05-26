@@ -1,0 +1,221 @@
+$icon-size: 30px;
+
+// $color-hover: saturate(lighten($green, 10%), 20%);
+// $color-active: desaturate(darken($green, 20%), 20%);
+
+$color-hover: #78a8a0;
+$color-active: #a4ebdf;
+$background-color: #444444;
+$slider-background-color: #969696;
+
+//
+// Buttons
+//
+.PlayButton,
+.PauseButton,
+.PrevButton,
+.NextButton,
+.SoundOnButton,
+.SoundOffButton {
+  margin-right: 10px;
+  padding: 8px;
+  background: $background-color;
+  border: 2px solid $color-active;
+  outline: none;
+  border-radius: 100%;
+
+  &[disabled] {
+    opacity: 0.5;
+  }
+
+  &.isEnabled {
+    cursor: pointer;
+
+    &:hover {
+      border-color: $color-hover;
+
+      .Icon-shape {
+        fill: $color-hover;
+      }
+    }
+
+    &:active {
+      border-color: $color-active;
+
+      .Icon-shape {
+        fill: $color-active;
+      }
+    }
+  }
+}
+
+.playbackRateInput
+{
+  background: rgba(0, 0, 0, 0.0);
+  text-align: center;
+  font-size: 16px;
+  color: $color-active;
+  min-width: 30px;
+  width: 30px;
+  margin-top:7.5px;
+  height: 15px;
+  float: left;
+  margin-right: 10px;
+  padding: 8px;
+  border: 2px solid $color-active;
+  outline: none;
+
+  &:hover {
+    border-color: $color-hover;
+  }
+}
+
+.Icon {
+  width: $icon-size;
+  height: $icon-size;
+}
+
+.Icon-shape {
+  fill: $color-active;
+}
+
+
+//
+// Sliders
+//
+
+.ProgressBar,
+.VolumeSlider {
+  position: relative;
+  background: $slider-background-color;
+  border-radius: 4px;
+
+  &-elapsed,
+  &-value {
+    background: $color-active;
+    border-radius: 4px;
+  }
+
+  &-seek {
+    position: absolute;
+    cursor: pointer;
+  }
+
+  &-handle {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: $color-active;
+    border-radius: 100%;
+    transform: scale(0);
+    transition: transform 0.2s;
+  }
+
+  &.isSeekable,
+  &.isEnabled {
+    &:hover {
+      .ProgressBar-handle,
+      .VolumeSlider-handle {
+        transform: scale(1);
+      }
+
+      .ProgressBar-intent,
+      .VolumeSlider-intent {
+        position: absolute;
+        background: rgba(0,0,0,0.05);
+      }
+    }
+
+    .ProgressBar-elapsed,
+    .VolumeSlider-value {
+      background: $color-active;
+    }
+  }
+}
+
+.TimeMarker {
+  color: $color-active;
+}
+
+.playerBackground {
+  background: $background-color;
+}
+
+.ProgressBar {
+  height: 8px;
+  margin: 10px 0;
+
+  &-elapsed {
+    height: 100%;
+  }
+
+  &-seek {
+    top: -6px;
+    right: 0;
+    bottom: -6px;
+    left: 0;
+  }
+
+  &-handle {
+    top: 0;
+    margin: -4px 0 0 -8px;
+  }
+
+  &.isSeekable {
+    &:hover {
+      .ProgressBar-handle {
+        transform: scale(1);
+      }
+
+      .ProgressBar-intent {
+        top: 0;
+        left: 0;
+        height: 100%;
+      }
+    }
+  }
+
+  &.isLoading {
+    opacity: 0.5;
+    background: #ccc;
+    animation: barLoading 2s infinite;
+  }
+}
+
+.VolumeSlider {
+  width: 8px;
+  height: 100px;
+  // margin: 10px 0;
+
+  &-value {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  &-seek {
+    left: -6px;
+    top: 0;
+    right: -6px;
+    bottom: 0;
+  }
+
+  &-handle {
+    left: 0;
+    margin: 0 0 -8px -4px;
+  }
+
+  &.isEnabled {
+    &:hover {
+      .VolumeSlider-handle {
+        transform: scale(1);
+      }
+
+      .VolumeSlider-intent {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      }
+    }
+  }
+}

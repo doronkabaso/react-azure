@@ -1,0 +1,80 @@
+#app, html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#app {
+    overflow-x: hidden;
+}
+
+.rtl {
+    direction: rtl;
+    text-align: right;
+}
+
+.ltr {
+    direction: ltr;
+    text-align: left;
+}
+
+.ltrToolBar {
+    float: left;
+}
+
+.rtlToolBar {
+    float: right;
+}
+
+.alwaysLtr {
+    direction: ltr;
+    text-align: left;
+}
+
+.root-div {
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.fit-height {
+    display: table;
+    height: 100%;
+}
+
+.fit-height-row {
+    display: table-row;
+    height: 1px;
+}
+
+.fit-height-row-content {
+    display: table-cell;
+}
+
+.fit-height-row-expanded {
+    height: 100%;
+    display: table-row;
+}
+
+.fit-height-row-expanded > .fit-height-row-content {
+    height: 100%;
+    width: 100%;
+}
+
+.scroll {
+    display: inline-block;
+    overflow-y: auto;
+    position: relative;
+}
+
+.scroll-content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}

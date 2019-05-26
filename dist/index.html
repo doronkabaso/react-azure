@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="assets/styles/layout.css">
+</head>
+    <body>
+        <div id="app"></div>
+        <script src="index.js" charset="utf-8"></script>
+        <!-- <button id="create-button">Create Container</button> -->
+
+<!--         <input type="file" id="fileinput" />
+        <button id="upload-file">Upload File</button>
+
+        <button id="upload-button">Upload String</button>
+
+        <button id="list-button">List</button>
+        
+        <button id="download-blob">Get Blob</button>
+ -->        
+    </body>
+<!--     <script>
+
+        
+        function postRequest(url, data) {
+          return fetch(url, {
+            credentials: 'same-origin', // 'include', default: 'omit'
+            method: 'POST', // 'GET', 'PUT', 'DELETE', etc.
+            body: data, // Coordinate the body type with 'Content-Type'
+            headers: new Headers({
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            }),
+          })
+          .then(response => response.json())
+        }
+
+        function postUploadFile(url, data) {
+          return fetch(url, {
+            credentials: 'same-origin', // 'include', default: 'omit'
+            method: 'POST', // 'GET', 'PUT', 'DELETE', etc.
+            body: data, // Coordinate the body type with 'Content-Type'
+          })
+          .then(response => response.json())
+        }
+
+
+        document.getElementById('upload-file').addEventListener('click', () => {
+            console.log(document.getElementById('fileinput').files[0])
+            let _file = document.getElementById('fileinput').files[0];
+            // const formData = new FormData()
+            // formData.append('file', _file)
+            postUploadFile('http://localhost:8080/api/uploadfile', {file: _file})
+              .then(data => console.log(data)) 
+              .catch(error => console.error(error))
+        });
+
+        document.getElementById('upload-button').addEventListener('click', () => {
+            postRequest('http://localhost:8080/api/uploadjson', JSON.stringify({a: 1, b: 'Textual content'}))
+              .then(data => console.log(data)) 
+              .catch(error => console.error(error))
+        });
+
+        document.getElementById('list-button').addEventListener('click', () => {
+            fetch('http://localhost:8080/api/containers')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            })
+            .catch(error => console.error(error)) 
+        });
+
+        document.getElementById('download-blob').addEventListener('click', () => {
+            fetch('http://localhost:8080/api/downloadblob')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            })
+            .catch(error => console.error(error)) 
+        });
+
+    </script> -->
+</html>

@@ -1,0 +1,19 @@
+{
+  "parser": "babel-eslint",
+  "rules": {
+    "react/prop-types":0,
+    "linebreak-style": 0,
+    "indent": [0],
+    "key-spacing": ["error", {"mode": "minimum"}],
+    "no-underscore-dangle": ["error", {"allowAfterThis": true}]
+  },
+  "extends": [
+    "airbnb-base",
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "env": {
+    "jasmine": true,
+    "browser": true
+  }
+}

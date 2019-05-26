@@ -1,0 +1,693 @@
+*,
+*:before,
+*:after {
+    box-sizing: initial !important; //override the semanic-ui-react css
+}
+
+@font-face {
+    font-family: 'HeeboFont-Black';
+    src: url("../assets/fonts/Heebo-Black.ttf");
+}
+
+
+@font-face {
+    font-family: 'HeeboFont-Light';
+    src: url("../assets/fonts/Heebo-Light.ttf");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+}
+
+a:link {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+#mainContainer {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#headerFrame {
+    width: 100%;
+    height: 35px;
+    color: #FFF;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+
+#ribbonToggleDiv {
+    display: block;
+    line-height: 120px;
+    text-align: right;
+    vertical-align: bottom;
+    float: right;
+}
+
+#verticalDragDiv {
+    display: block;
+    width: 100%;
+    float: left;
+    height: 1px;
+    padding: 0;
+    margin: 0;
+    color: white;
+    background: white;
+}
+
+#verticalDragLine {
+    width: 100%;
+    height: 1px;
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+    color: white;
+    background: white;
+}
+
+#horizontalDragDiv {
+    width: 1px;
+    height: 50px;
+    display: inline-block;
+    float: left;
+    padding: 0;
+    margin: 0;
+    color: white;
+    background: white;
+}
+
+#horizontalDragLine {
+    width: 1px;
+    height: 50px;
+    opacity: 0;
+    display: inline-block;
+    float: left;
+    padding: 0;
+    margin: 0;
+    color: white;
+    background: white;
+}
+
+#subtitleFrame {
+    border: 1px solid #666;
+    overflow: hidden;
+}
+
+#subtitleToolbar {
+    float: left;
+    width: 100%;
+    background: #29213E;
+    min-height: 20px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-weight: bold;
+    color: white;
+}
+
+#subtitleTextArea {
+    padding: 0;
+    margin: 0;
+    border: 0px;
+    resize: none;
+    background: white ;
+    word-wrap: unset;
+    color: black;
+    direction: rtl !important;
+    width: 100%;
+}
+
+#subtitleTextArea::-webkit-input-placeholder {
+    font-size: 36px;
+}
+
+#subtitleTextArea::-moz-placeholder {
+    font-size: 36px;
+}
+
+#waveformFrame {
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #888;
+    height: 100%;
+    background: #444;
+    color: #FFF;
+}
+
+.imgLogo {
+    text-align: center;
+    vertical-align: middle;
+    min-width: 78px;
+    padding: 0;
+    border: 0;
+    margin-left: 3px;
+    margin-right: 3px;
+    padding-top: 3px;
+}
+
+.imgButton {
+    text-align: center;
+    vertical-align: middle;
+    min-width: 130px;
+    border: 0;
+    margin-left: 5px;
+    margin-right: 0px;
+    cursor:pointer;
+    padding-top: 4px;
+    //position: relative;
+    //top: 5px;
+}
+
+
+.imgIcon {
+    width: 25px;
+    height: 25px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.imgButton img {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.imgButton br {}
+
+.imgButton:hover {
+    opacity: 0.7;
+}
+
+.imgButton:active {
+    opacity: 1;
+    filter: brightness(50%);
+    -webkit-filter: brightness(50%);
+    -moz-filter: brightness(50%);
+    filter: url(#brightness);
+}
+
+.selected_li {
+    background: #e496f2;
+}
+
+.subtitle_li {
+    list-style: none;
+    text-align: center;
+    color: #FFF
+}
+
+.subtitle_li_empty {
+    list-style: none;
+    text-align: center;
+    color: black
+}
+
+#subtitleLineCount {
+    padding-top: 1px;
+    float: right;
+    width: 50px;
+    background: #000;
+    color: #FFF;
+    height: 100%;
+}
+
+#helpDialogContainer {
+    z-index: 90;
+}
+
+.dialogContainer {
+    display: block;
+    line-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+
+.subtitleElements {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    line-height: 1.5;
+}
+
+.subtitleElementsCount {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    line-height: 1.5;
+    direction: RTL;
+}
+
+#subtitleFormContainer {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    float: left;
+    white-space: nowrap;
+}
+
+.promptDialog {
+    display: inline-block;
+    background-color: #FFF;
+    box-shadow: 4px 4px 12px -2px rgba(20%, 20%, 20%, 0.5);
+    border: #999 1px solid;
+    border-radius: 10px;
+    overflow: hidden;
+    vertical-align: middle;
+    line-height: normal;
+    padding: 0px;
+    padding-bottom: 10px;
+    min-width: 360px;
+    min-height: 150px;
+}
+
+#subtitleOverlay {
+    float: left;
+    color: #FFF;
+    position: initial;
+    bottom: 60px;
+    left: 5%;
+    min-height: 20px;
+    text-align: center;
+    direction: RTL;
+    width: 90%;
+    font-size: 1.8vw;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+
+.flexRowContainer {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap-reverse;
+    direction: RTL;
+}
+
+.qualityLabel, .speakersLabel {
+    font-size: large;
+}
+
+.speakerCellWidth {
+    width: 120px;
+}
+
+.qualityDropdown {
+    width: 55px;
+}
+
+.flexColumnContainer {
+    display: flex;
+    flex-direction: column;
+    direction: LTR;
+    flex-flow: column wrap-reverse;
+}
+
+.speakerCellSize {
+    width: 119px;
+    height: 20px;
+}
+
+.editSpeakerItentifierTitle {
+    height: 20px  !important;;
+    width: 58px !important;
+
+}
+
+.speakerItentifierCellWidth {
+    width:60px;
+}
+
+.dropzoneRegion {
+    width: inherit;
+    height: inherit;
+}
+
+button.ui.button.helpIcon  {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 155px;
+    background-color: #5e6b61;
+    margin-bottom: 4px;
+    color:white;
+    text-align: right;
+    direction: RTL;
+    font-weight: inherit;
+    font-size: smaller;
+}
+
+.helpIconTableCell {
+    text-align: right;
+    direction: RTL;
+    font-weight: inherit;
+    font-size: small;
+}
+
+.iconsPanel {
+    z-index: 100;
+    position: fixed;
+    left: 15px;
+    top: 55px;
+    opacity:0.8;
+    height: 560px;
+    width: 384px;
+}
+
+.exitButtonEditSpeakers {
+    float: left;
+    background-color: #00B5AD !important;
+    cursor: pointer;
+}
+
+.exitHelpIconsButton {
+    float: left;
+    background-color: #00B5AD !important;
+    cursor: pointer;
+    align-self: flex-end;
+    top: 301px;
+    position: relative;
+}
+
+.exitHelpDialogButton {
+    background-color: #00B5AD !important;
+
+}
+
+.ui.button.floating.labeled.speakerCellWidth.dropdown {
+    height: 20px;
+    bottom: 8px;
+    .text {
+        color: white;
+    }
+}
+input.speakerItentifierTitle.speakerItentifierCellWidth {
+    margin-right: 60px;
+}
+
+textarea.editSpeakerItentifierTitle {
+    margin-right: 60px;
+}
+
+button#save {
+    position: relative;
+    bottom: 9px;
+}
+button#add {
+    right: 30px;
+    position: relative;
+}
+
+.speakersDialogTitle {
+    right: -153px;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.saveTranscriptActions {
+    text-align: center !important;
+}
+
+.gridSpeakersSubTitle {
+    right: 62px;
+    position: relative;
+    color: white;
+}
+
+.helperButton {
+    position: fixed;
+    left: 10px;
+    top: 11px;
+    font-size: small;
+}
+
+.saveTranscriptActionsFooter {
+    font-size: smaller;
+    padding: 10px;
+    direction: rtl;
+    text-align: right;
+}
+
+.transcriptActionsFooterSutitle {
+    padding-bottom: 13px;
+    font-weight: bold;
+}
+
+.helpImgIcon {
+    width: 20px;
+    height: 20px;
+}
+
+.tableHeaderShortcutTitles {
+    direction: rtl;
+    text-align: right;
+}
+
+.tableShortcuts {
+    border: 1px solid black  !important;
+}
+
+#audioFileName {
+    color: white;
+    position: fixed;
+    left: 8px;
+    bottom: 208px;
+}
+
+.shortcutKeysLabel {
+    color: black;
+    opacity:0.8;
+}
+
+.flexJustifyContent {
+    justify-content: space-between;
+}
+
+.titleSaveTranscriptActionsFooter {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.titleOperatorGuidelinesDownloadLink {
+    text-decoration: underline !important;
+    color: blue !important;
+    cursor: pointer;
+}
+
+.ui.modal > .content {
+    line-height: 1.5 !important;
+}
+
+.playbackRateInput {
+    position: fixed;
+    right: 10px;
+    z-index: 10;
+    width: 62px;
+    option {
+        background: transparent !important;
+        color: black;
+    }
+    height: 20px;
+}
+
+#headerFrame, .selected_li {
+    background-color: #25556f;
+}
+
+#subtitleLineCount, #subtitleToolbar, #subtitleBackground, #subtitleOverlay {
+    background-color: #153b50;
+
+}
+#subtitleBackground {
+    border: 2px solid #666;
+    position: initial;
+}
+
+
+body {
+    font-family: HeeboFont-Light !important;
+}
+
+.helpIcon, .ui.button.floating.labeled.speakerCellWidth.dropdown, .exitButtonEditSpeakers, .ui.button.floating.labeled.icon.dropdown {
+    font-family: HeeboFont-Light !important;
+}
+
+
+.modal {
+    div, button {
+        font-family: HeeboFont-Black !important;
+    }
+}
+
+.saveImgIcon {
+    img {
+        width: 25px;
+        height: 25px;
+        top: 1px;
+        position: relative;
+    }
+}
+
+.imgLogo {
+    height: 40px;
+}
+
+.playerBackground {
+    background-color: #182227 !important;
+}
+
+button.PlayButton {
+    top: 5px;
+    position: relative;
+}
+
+.helpToolbarButton {
+    position: fixed;
+    left: 0px;
+    top: 9px;
+}
+
+.validateTranscriptToolbarButton {
+    position: fixed;
+    left: 155px;
+    top: 5px;
+    z-index: 20;
+}
+
+.validateTranscriptIcon {
+    padding-top: 5px;
+}
+
+.validateTranscriptLabel {
+    top: -8px !important;
+    position: relative;
+    cursor:pointer;
+}
+
+#confirmAddLeftTags, button.ui.teal.large.button {
+    border-radius: 10px;
+    margin: 5px;
+}
+
+#cancelAddLeftTags {
+    background-color: #fff;
+    color: black;
+}
+
+.ui.small.modal.transition.visible.active {
+    width: 600px;
+    font-size: smaller;
+}
+
+.selectedAddTagLeft {
+    border: 3px solid #153b50 !important;
+}
+
+
+.dropAudioRegionLabel {
+    text-align: center;
+    position: relative;
+    top: 35px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.onDropRegionForAudio {
+    border: 1px solid white;
+}
+
+
+div#dropdownArena {
+    width: 502px;
+    height: 20px;
+}
+
+.dropdownChooseArena .text {
+    border: 1px solid black !important;
+}
+
+
+.speakersPanel, .previousTaggingPanel {
+    z-index: 100;
+    position: fixed;
+    left: 10px;
+    background-color: #3D463F;
+    top: 100px;
+    opacity:0.9;
+}
+
+.previousTaggingPanel {
+    width: 400px;
+
+}
+
+.itemTaggedDataText {
+    color: white;
+    float: left;
+    text-decoration: underline;
+    margin-right: 10px;
+    cursor:pointer;
+    direction: ltr;
+}
+.searchIcon {
+    height: 25px;
+    width: 25px;
+}
+
+.inputSidebar {
+    width: 371px;
+}
+
+.labelChooseAudioType {
+    position: relative;
+    top: 10px;
+    //font-size: large;
+}
+
+.labelChooseLanguage {
+    position: relative;
+    top: 10px;
+    //font-size: large;
+    padding-right: 10px;
+}
+
+
+.chooseLanguageDropdown {
+    padding: 0px !important;
+}
+//
+//#subtitleTextArea > div > div {
+//    unicode-bidi: bidi-override !important;
+//}
